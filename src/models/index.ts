@@ -1,4 +1,4 @@
-import Post from "./Post.js";
-import Comment from "./Comment.js";
+import Post from "./Thought";
+import Comment from "./User";
 
-export { Post, Comment };
+export { Thought, User };

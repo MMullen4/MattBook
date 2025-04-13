@@ -1,9 +1,10 @@
 import { Router } from "express";
-const router = Router();
-import postRoutes from "./postRoutes.js";
-import commentRoutes from "./commentRoutes.js";
+import thoughtRoutes from "./thoughtRoutes";
+import userRoutes from "./userRoutes";
 
-router.use("/posts", postRoutes);
-router.use("/comments", commentRoutes);
+const router = Router();
+
+router.use("/thoughts", thoughtRoutes);
+router.use("/users", userRoutes);
 
 export default router;

@@ -1,4 +1,6 @@
-import Post from "./Thought";
-import Comment from "./User";
+import User from "./User";
+import { Thought } from "./Thought";
 
 export { Thought, User };
+
+

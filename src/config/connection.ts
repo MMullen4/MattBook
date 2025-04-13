@@ -1,7 +1,8 @@
-import mongoose from 'mongoose';
+import { connect, Connection } from "mongoose";
 
-// Wrap Mongoose around local connection to MongoDB
-mongoose.connect('mongodb://127.0.0.1:27017/employeeManagersDB');
+// Connect to the local MongoDB database called postsTags
+const dbConnection: Connection = connect(
+  "mongodb://127.0.0.1:27017/postsTags"
+).connection;
 
-// Export connection 
-export default mongoose.connection;
+export default dbConnection;

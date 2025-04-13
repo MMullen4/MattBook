@@ -1,7 +1,7 @@
 import { Connection } from "mongoose";
 import users from "./data"; // import user data
-import connection from "../config/connection"; // import connection to the db
-import { User, Thought } from "../models"; // import user & thought models
+import connection from "../src/config/connection"; // import connection to the db
+import { User, Thought } from "../src/models"; // import user & thought models
 
 // Define interfaces for your data structures
 interface IUser {
@@ -16,17 +16,15 @@ interface IUserSeed {
 
 // open connecttion to the database
 connection.once("open", async (): Promise<void> => {
-  console.log("connected");
+console.log("connected");
 
-  // Type the collection check
-  const userCheck = await connection.db
-    .listCollections({ name: "users" })
-    .toArray();
-  if (userCheck.length) {
+// Type the collection check
+const userCheck = await connection.db?.listCollections({ name: "users" }).toArray();
+if (userCheck && userCheck.length) {
     await connection.dropCollection("users");
-  }
+}
 
-  const userSeed: IUserSeed[] = [];
+const userSeed: IUserSeed[] = [];
 
   // Assuming users is an array of IUser, loop thru the user data
   for (let i = 0; i < 5; i++) {

@@ -1,6 +1,6 @@
 import { Schema, model, Types, Document } from 'mongoose';
 
-// interface for Reaction
+// interface for Reaction documents
 interface IReaction {
   reactionId: Types.ObjectId;
   reactionBody: string;
@@ -8,7 +8,7 @@ interface IReaction {
   createdAt: Date;
 }
 
-// interface for Thought
+// interface for Thought documents
 interface IThought extends Document {
     thoughtText: string;
     createdAt: Date;
@@ -32,9 +32,9 @@ const reactionSchema = new Schema<IReaction>({
         required: true
     },
     createdAt: {
-        type: Date,
-        default: Date.now,
-        get: (timeStamp: { toLocaleDateString: () => any; }) => timeStamp.toLocaleDateString(),
+        type: Date, // specs this will store date types
+        default: Date.now, // set default to current date/time
+        get: (timeStamp: { toLocaleDateString: () => any; }) => timeStamp.toLocaleDateString(), // formats how date is returned
     }
 }, {
     toJSON: {

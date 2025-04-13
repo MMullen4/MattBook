@@ -4,7 +4,7 @@ import { Thought, User } from '../src/models';
 
 interface IThought {
     reactiopnId: Types.ObjectId;
-    
+
 }
 
 interface IThoughtController {
@@ -17,7 +17,7 @@ interface IThoughtController {
     deleteReaction(req: Request, res: Response): Promise<void>;
 }
 
-const thoughtController: IThoughtController = {
+export const thoughtController: IThoughtController = {
     async getThought(req: Request, res: Response): Promise<void> {
         try {
             const allThoughts = await Thought.find();
@@ -131,3 +131,5 @@ const thoughtController: IThoughtController = {
         }
     },
 };
+
+export default thoughtController;

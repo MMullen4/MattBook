@@ -1,11 +1,22 @@
 import { Request, Response } from 'express';
-import { Types } from 'mongoose';
+// import { Types } from 'mongoose';
 import { Thought, User } from '../models';
 
-interface IThought {
-    reactiopnId: Types.ObjectId;
+// interface IThought {
+//     _id: Types.ObjectId;
+//     thoughtText: string;
+//     createdAt: Date;
+//     username: string;
+//     reactions: IReaction[];
+//     userId: Types.ObjectId;
+// }
 
-}
+// interface IReaction {
+//     reactionId: Types.ObjectId;
+//     reactionBody: string;
+//     username: string;
+//     createdAt: Date;
+// }
 
 interface IThoughtController {
     getThought(req: Request, res: Response): Promise<void>;
@@ -18,7 +29,7 @@ interface IThoughtController {
 }
 
 export const thoughtController: IThoughtController = {
-    async getThought(req: Request, res: Response): Promise<void> {
+    async getThought(_req: Request, res: Response): Promise<void> {
         try {
             const allThoughts = await Thought.find();
             console.log(allThoughts);

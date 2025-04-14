@@ -6,7 +6,7 @@ const router: Router = Router();
 // mount API routes
 router.use("/api", apiRoutes);
 
-router.use((req: Request, res: Response): void => {
+router.use((_req: Request, res: Response): void => {
   res.status(404).send("<h1>Wrong Route!</h1>");
 });
 

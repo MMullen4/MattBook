@@ -2,11 +2,11 @@ import { Request, Response } from "express";
 import { User } from "../models";
 
 // define interfaces for User & Thought types
-interface IUser {
-  _id: string;
-  thoughts: string[];
-  friends: string[];
-}
+// interface IUser {
+//   _id: string;
+//   thoughts: string[];
+//   friends: string[];
+// }
 
 // define user controller interface
 interface UserController {
@@ -20,7 +20,7 @@ interface UserController {
 }
 
 export const userController: UserController = {
-  async getUsers(req: Request, res: Response): Promise<void> {
+  async getUsers(_req: Request, res: Response): Promise<void> {
     try {
       const users = await User.find({}).select("-__v");
       res.json(users);

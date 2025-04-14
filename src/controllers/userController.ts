@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { User } from "../src/models";
+import { User } from "../models";
 
 // define interfaces for User & Thought types
 interface IUser {

@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
 import { Types } from 'mongoose';
-import { Thought, User } from '../src/models';
+import { Thought, User } from '../models';
 
 interface IThought {
     reactiopnId: Types.ObjectId;
@@ -46,9 +46,9 @@ export const thoughtController: IThoughtController = {
         try {
             const thought = await Thought.create(req.body);
             const user = await User.findOneAndUpdate(
-                { _id: req.body.userId },
-                { $push: { thoughts: thought._id } },
-                { new: true }
+              { _id: req.body.userId }, // find user by _id and update their thoughts array
+              { $push: { thoughts: thought._id } }, // push the new thought's _id to the user's thoughts array
+              { new: true } // return the updated document
             );
             if (!user) {
                 res.status(404).json({ message: 'Thought created, but found no user with that ID' });
@@ -68,8 +68,7 @@ export const thoughtController: IThoughtController = {
                 return;
             }
             const userUpdate = await User.findOneAndUpdate(
-                // { thoughts: req.params.thoughtId },
-                { _id: thought.userId },
+                { _id: req.body.userId },
                 { $pull: { thoughts: thought._id } },
                 { new: true }
             );

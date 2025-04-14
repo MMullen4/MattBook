@@ -1,6 +1,6 @@
 import express, { Application } from 'express';
-import connectDB  from './config/connection';
-import routes from './routes';
+import connectDB  from './config/connection.js';
+import routes from './routes/index.js';
 
 const PORT: number = process.env.PORT ? parseInt(process.env.PORT) : 3001;
 const app: Application = express();

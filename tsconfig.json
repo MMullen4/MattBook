@@ -34,5 +34,9 @@
     "noImplicitOverride": true /* Ensure overriding members in derived classes are marked with an override modifier. */,
     "useUnknownInCatchVariables": true /* Ensure 'unknown' is used for catch clause variables. */
   },
-  "include": ["src"]
+  "include": ["src", "src/server.ts"],
+  "exclude": [
+    "node_modules", // Exclude the 'node_modules' directory                                // Exclude the 'build' output directory
+    "dist" // Exclude the 'dist' output directory
+  ]
 }

@@ -1,12 +1,5 @@
 import { Request, Response } from "express";
-import { User } from "../models";
-
-// define interfaces for User & Thought types
-// interface IUser {
-//   _id: string;
-//   thoughts: string[];
-//   friends: string[];
-// }
+import { User } from "../models/index.js";
 
 // define user controller interface
 interface UserController {

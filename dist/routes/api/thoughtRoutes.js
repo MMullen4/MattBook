@@ -1,5 +1,5 @@
 import { Router } from "express";
-import thoughtController from "../../controllers/thoughtController";
+import thoughtController from "../../controllers/thoughtController.js";
 // import {
 //   getThought,
 //   getSingleThought,

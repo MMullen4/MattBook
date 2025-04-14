@@ -1,6 +1,6 @@
 import express from 'express';
-import connectDB from './config/connection';
-import routes from './routes';
+import connectDB from './config/connection.js';
+import routes from './routes/index.js';
 const PORT = process.env.PORT ? parseInt(process.env.PORT) : 3001;
 const app = express();
 app.use(express.urlencoded({ extended: true }));

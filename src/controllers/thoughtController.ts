@@ -1,22 +1,6 @@
 import { Request, Response } from 'express';
 // import { Types } from 'mongoose';
-import { Thought, User } from '../models';
-
-// interface IThought {
-//     _id: Types.ObjectId;
-//     thoughtText: string;
-//     createdAt: Date;
-//     username: string;
-//     reactions: IReaction[];
-//     userId: Types.ObjectId;
-// }
-
-// interface IReaction {
-//     reactionId: Types.ObjectId;
-//     reactionBody: string;
-//     username: string;
-//     createdAt: Date;
-// }
+import { Thought, User } from '../models/index.js';
 
 interface IThoughtController {
     getThought(req: Request, res: Response): Promise<void>;

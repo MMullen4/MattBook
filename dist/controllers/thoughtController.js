@@ -1,5 +1,5 @@
 // import { Types } from 'mongoose';
-import { Thought, User } from '../models';
+import { Thought, User } from '../models/index.js';
 export const thoughtController = {
     async getThought(_req, res) {
         try {

@@ -43,7 +43,7 @@ const userSchema = new Schema<IUser>(
   },
   {
     toJSON: {
-      virtuals: true,
+      virtuals: true, //ensures virtuals are included when converting to JSON
     },
     id: false,
   }

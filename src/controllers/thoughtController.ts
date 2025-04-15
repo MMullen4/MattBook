@@ -78,7 +78,7 @@ export const thoughtController: IThoughtController = {
         try {
             const thought = await Thought.findOneAndUpdate(
                 { _id: req.params.thoughtId },
-                req.body,
+                { $set: req.body },
                 { runValidators: true, new: true }
             );
             if (!thought) {

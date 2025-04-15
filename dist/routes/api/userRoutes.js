@@ -1,14 +1,5 @@
 import { Router } from "express";
 import userController from "../../controllers/userController.js";
-// import {
-//     getUsers,
-//     createUser,
-//     getSingleUser,
-//     updateUser,
-//     deleteUser,
-//     addFriend,
-//     deleteFriend
-// } from "../../controllers/userController";
 const router = Router();
 // get all users and create a new user
 router.route("/").get(userController.getUsers).post(userController.createUser);

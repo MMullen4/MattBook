@@ -24,6 +24,12 @@ const users = [
     thoughts: "More testing needed",
     friends: "Joe",
   },
+  {
+    username: "Joe",
+    email: "Joe@icloud.com",
+    thoughts: "I'm thinking",
+    friends: "test",
+  },
 ];
 
 export default users;

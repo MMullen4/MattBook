@@ -1,7 +1,8 @@
-import { Connection } from "mongoose";
-import users from "./data"; // import user data
-import connection from "../src/config/connection"; // import connection to the db
-import { User, Thought } from "../src/models"; // import user & thought models
+// import { Connection } from "mongoose";
+import mongoose from "mongoose";
+import users from "./data.js"; // import user data
+// import connection from "../src/config/connection.js"; // import connection to the db
+import { User, Thought } from "../src/models/index.js"; // import user & thought models
 
 // Define interfaces for your data structures
 interface IUser {
@@ -13,6 +14,9 @@ interface IUserSeed {
   userName: string;
   email: string;
 }
+
+const connection = mongoose.connection
+connection.on("error", (err): void => err);
 
 // open connecttion to the database
 connection.once("open", async (): Promise<void> => {

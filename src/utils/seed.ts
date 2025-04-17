@@ -4,12 +4,6 @@ import users from "./data.js"; // import user data
 // import connection from "../src/config/connection.js"; // import connection to the db
 import { User } from "../models/index.js"; // import user & thought models
 
-// Define interfaces for your data structures
-// interface IUser {
-//   username: string;
-//   email: string;
-// }
-
 interface IUserSeed {
   userName: string;
   email: string;

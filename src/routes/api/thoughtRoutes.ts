@@ -16,10 +16,13 @@ router
   .delete(thoughtController.deleteThought);
 
 // add a reaction to a thought
-router.route("/:thoughtId/reactions").post(thoughtController.addReaction);
+router
+  .route("/:thoughtId/reactions")
+  .post(thoughtController.addReaction);
 
 // delete a reaction from a thought
-router.route("/:thoughtId/reactions/:reactionId")
+router
+  .route("/:thoughtId/reactions/:reactionId")
   .delete(thoughtController.deleteReaction);
 
 export default router;

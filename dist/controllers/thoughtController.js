@@ -61,7 +61,7 @@ export const thoughtController = {
     },
     async updateThought(req, res) {
         try {
-            const thought = await Thought.findOneAndUpdate({ _id: req.params.thoughtId }, { $addToSet: req.body }, { runValidators: true, new: true });
+            const thought = await Thought.findOneAndUpdate({ _id: req.params.thoughtId }, { $set: req.body }, { runValidators: true, new: true });
             if (!thought) {
                 res.status(404).json({ message: 'No thought with this id!' });
                 return;

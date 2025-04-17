@@ -55,8 +55,9 @@ FSF Bootcamp TA's and teachers
 
 ## Visuals
 
+# Screeenshot
 ![Alt text](<Screenshot 2025-04-17 at 2.28.28 PM.png>)
 
-Video walkthrough - 
+# Video walkthrough - 
 https://app.screencastify.com/v3/watch/2zOmdFAN3EiPcX5CXbcX
 

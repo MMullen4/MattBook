@@ -41,10 +41,11 @@ export const thoughtController: IThoughtController = {
         try {
             const thought = await Thought.create(req.body);
             const user = await User.findOneAndUpdate(
-              { _id: req.body.userId }, // find user by _id and update their thoughts array
+              { username: req.body.username }, // find user by _id and update their thoughts array
               { $push: { thoughts: thought._id } }, // push the new thought's _id to the user's thoughts array
               { new: true } // return the updated document
             );
+            console.log(user, "user");
             if (!user) {
                 res.status(404).json({ message: 'Thought created, but found no user with that ID' });
                 return;
@@ -78,7 +79,7 @@ export const thoughtController: IThoughtController = {
         try {
             const thought = await Thought.findOneAndUpdate(
                 { _id: req.params.thoughtId },
-                { $set: req.body },
+                { $addToSet: req.body },
                 { runValidators: true, new: true }
             );
             if (!thought) {
@@ -98,12 +99,14 @@ export const thoughtController: IThoughtController = {
                 { $addToSet: { reactions: req.body } },
                 { runValidators: true, new: true }
             );
+            console.log(thought);
             if (!thought) {
                 res.status(404).json({ message: 'No thought with this id!' });
                 return;
             }
             res.json(thought);
         } catch (err) {
+            console.error("error", err);
             res.status(500).json(err);
         }
     },

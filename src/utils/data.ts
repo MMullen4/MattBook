@@ -1,11 +1,11 @@
 interface User {
   username: string;
   email: string;
-  thoughts: string[];
-  friends: string[];
+  thoughts: string;
+  friends: string;
 }
 
-const users = [
+const users: User[] = [
   {
     username: "admin",
     email: "admin@icloud.com",

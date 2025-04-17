@@ -29,10 +29,11 @@ export const thoughtController = {
     async createThought(req, res) {
         try {
             const thought = await Thought.create(req.body);
-            const user = await User.findOneAndUpdate({ _id: req.body.userId }, // find user by _id and update their thoughts array
+            const user = await User.findOneAndUpdate({ username: req.body.username }, // find user by _id and update their thoughts array
             { $push: { thoughts: thought._id } }, // push the new thought's _id to the user's thoughts array
             { new: true } // return the updated document
             );
+            console.log(user, "user");
             if (!user) {
                 res.status(404).json({ message: 'Thought created, but found no user with that ID' });
                 return;
@@ -60,7 +61,7 @@ export const thoughtController = {
     },
     async updateThought(req, res) {
         try {
-            const thought = await Thought.findOneAndUpdate({ _id: req.params.thoughtId }, { $set: req.body }, { runValidators: true, new: true });
+            const thought = await Thought.findOneAndUpdate({ _id: req.params.thoughtId }, { $addToSet: req.body }, { runValidators: true, new: true });
             if (!thought) {
                 res.status(404).json({ message: 'No thought with this id!' });
                 return;
@@ -74,6 +75,7 @@ export const thoughtController = {
     async addReaction(req, res) {
         try {
             const thought = await Thought.findOneAndUpdate({ _id: req.params.thoughtId }, { $addToSet: { reactions: req.body } }, { runValidators: true, new: true });
+            console.log(thought);
             if (!thought) {
                 res.status(404).json({ message: 'No thought with this id!' });
                 return;
@@ -81,6 +83,7 @@ export const thoughtController = {
             res.json(thought);
         }
         catch (err) {
+            console.error("error", err);
             res.status(500).json(err);
         }
     },
